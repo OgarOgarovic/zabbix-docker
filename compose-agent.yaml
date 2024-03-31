@@ -119,37 +119,37 @@ networks:
       driver: "${FRONTEND_NETWORK_DRIVER}"
       config:
       - subnet: "${FRONTEND_SUBNET}"
-  zbx_net_backend:
-    driver: bridge
-    driver_opts:
-      com.docker.network.enable_ipv6: "${BACKEND_ENABLE_IPV6}"
-    internal: true
-    ipam:
-      driver: "${BACKEND_NETWORK_DRIVER}"
-      config:
-      - subnet: "${BACKEND_SUBNET}"
-  zbx_net_database:
-    driver: bridge
-    driver_opts:
-      com.docker.network.enable_ipv6: "${DATABASE_NETWORK_ENABLE_IPV6}"
-    internal: true
-    ipam:
-      driver: "${DATABASE_NETWORK_DRIVER}"
+#   zbx_net_backend:
+#     driver: bridge
+#     driver_opts:
+#       com.docker.network.enable_ipv6: "${BACKEND_ENABLE_IPV6}"
+#     internal: true
+#     ipam:
+#       driver: "${BACKEND_NETWORK_DRIVER}"
+#       config:
+#       - subnet: "${BACKEND_SUBNET}"
+#   zbx_net_database:
+#     driver: bridge
+#     driver_opts:
+#       com.docker.network.enable_ipv6: "${DATABASE_NETWORK_ENABLE_IPV6}"
+#     internal: true
+#     ipam:
+#       driver: "${DATABASE_NETWORK_DRIVER}"
 
-volumes:
-  snmptraps:
-#  dbsocket:
+# volumes:
+#   snmptraps:
+# #  dbsocket:
 
-secrets:
-  MYSQL_USER:
-    file: ${ENV_VARS_DIRECTORY}/.MYSQL_USER
-  MYSQL_PASSWORD:
-    file: ${ENV_VARS_DIRECTORY}/.MYSQL_PASSWORD
-  MYSQL_ROOT_USER:
-    file: ${ENV_VARS_DIRECTORY}/.MYSQL_ROOT_USER
-  MYSQL_ROOT_PASSWORD:
-    file: ${ENV_VARS_DIRECTORY}/.MYSQL_ROOT_PASSWORD
-  POSTGRES_USER:
-    file: ${ENV_VARS_DIRECTORY}/.POSTGRES_USER
-  POSTGRES_PASSWORD:
-    file: ${ENV_VARS_DIRECTORY}/.POSTGRES_PASSWORD
+# secrets:
+#   MYSQL_USER:
+#     file: ${ENV_VARS_DIRECTORY}/.MYSQL_USER
+#   MYSQL_PASSWORD:
+#     file: ${ENV_VARS_DIRECTORY}/.MYSQL_PASSWORD
+#   MYSQL_ROOT_USER:
+#     file: ${ENV_VARS_DIRECTORY}/.MYSQL_ROOT_USER
+#   MYSQL_ROOT_PASSWORD:
+#     file: ${ENV_VARS_DIRECTORY}/.MYSQL_ROOT_PASSWORD
+#   POSTGRES_USER:
+#     file: ${ENV_VARS_DIRECTORY}/.POSTGRES_USER
+#   POSTGRES_PASSWORD:
+#     file: ${ENV_VARS_DIRECTORY}/.POSTGRES_PASSWORD
